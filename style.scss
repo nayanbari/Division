@@ -1,7 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --yellow-col: #ffd60a;
+  --green-col: #30d158;
+  --red-col: #ff453a;
+  --violet-col: #5e5ce6;
+  --blue-col: #0a84ff;
+  --orange-col: #ff9f0a;
+  --cherry-col: #ff375f;
+  --light-blue-col: #64d2ff;
+  --purple-col: #bf5af2;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
 }
 
 .pattern {
@@ -16,13 +37,182 @@
 }
 
 svg path {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   transform-origin: center;
   transform-box: fill-box;
 }
 
-// @keyframes rotate {
-//     0%{
-//         transform: tra;
-//     }
-// }
+.text {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 50%;
+  width: 62.12%;
+  height: 62.12vh;
+  background-color: #fff;
+  transform: translateX(-50%);
+  border-radius: 100px 100px 0 0;
+
+  #letter-B {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #division {
+    z-index: 2;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 9rem;
+    font-weight: 600;
+    -webkit-text-stroke: 3px;
+    color: transparent;
+  }
+}
+
+.our-team {
+  position: relative;
+  padding: 10rem 5rem;
+  width: 100%;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 6rem;
+    padding: 2rem 0;
+    // color: var(--orange-col);
+    animation-name: colorChange;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    // animation: colorChange 5s ease-in-out 0 infinite alternate;
+  }
+
+  .row {
+    padding: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1;
+    align-items: center;
+    justify-content: center;
+
+    .col {
+      position: relative;
+      margin: 0 auto;
+      max-width: 15.635%;
+      max-height: 44.72vh;
+      overflow: hidden;
+
+      .model {
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease-in-out;
+      }
+      .action {
+        position: absolute;
+        width: 100%;
+        // background: wheat;
+        bottom: 0;
+        height: 30%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        transform: translateY(100%);
+        transition: all 0.3s ease-in-out;
+
+        h3 {
+          font-size: 1.5rem;
+          font-weight: 400;
+          color: #fff;
+          padding: 1rem 0;
+        }
+
+        .social-icons {
+          img {
+            margin: 0 1rem;
+          }
+        }
+      }
+
+      .y-bg {
+        background-color: var(--yellow-col);
+        border-radius: 50px 0 0 0;
+      }
+      .v-bg {
+        background-color: var(--violet-col);
+        border-radius: 50px 0 0 0;
+      }
+      .r-bg {
+        background-color: var(--red-col);
+        border-radius: 0 50px 0 0;
+      }
+      .p-bg {
+        background-color: var(--purple-col);
+        border-radius: 0 50px 0 0;
+      }
+      .o-bg {
+        background-color: var(--orange-col);
+        border-radius: 50px 0 0 0;
+      }
+      .lb-bg {
+        background-color: var(--light-blue-col);
+        border-radius: 50px 0 0 0;
+      }
+      .g-bg {
+        background-color: var(--green-col);
+        border-radius: 0 50px 0 0;
+      }
+      .c-bg {
+        background-color: var(--cherry-col);
+        border-radius: 0 50px 0 0;
+      }
+      .b-bg {
+        background-color: var(--blue-col);
+        border-radius: 50px 0 0 0;
+      }
+    }
+
+    .col:hover .action {
+      transform: translateY(0);
+    }
+
+    .col:hover .model {
+      transform: scale(1.1);
+      filter: blur(3px);
+    }
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: var(--blue-col);
+  }
+  13% {
+    color: var(--cherry-col);
+  }
+  25% {
+    color: var(--green-col);
+  }
+  37% {
+    color: var(--light-blue-col);
+  }
+  50% {
+    color: var(--orange-col);
+  }
+  62% {
+    color: var(--purple-col);
+  }
+  75% {
+    color: var(--red-col);
+  }
+  87% {
+    color: var(--violet-col);
+  }
+  100% {
+    color: var(--yellow-col);
+  }
+}
