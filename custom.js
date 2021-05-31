@@ -14,7 +14,10 @@ const pattern = document.querySelector(".pattern");
       window.addEventListener('resize', function () { 
         "use strict";
         window.location.reload(); 
-    }); 
+    });
+
+  
+    // Our Team 
     
 var skewSetter= gsap.quickSetter(".col", "skewY", "deg") 
 var proxy = {skew:0}   
@@ -35,3 +38,42 @@ ScrollTrigger.create({
 });
 
 gsap.set(".col",{transformOrigin:"center center",force3D:true})
+
+
+var cursor = document.querySelector('.cursor');
+var cursorinner = document.querySelector('.cursor2');
+const a = document.querySelectorAll('.col');
+
+document.addEventListener('mousemove', function(e){
+  var x = e.clientX;
+  var y = e.clientY;
+  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+});
+
+document.addEventListener('mousemove', function(e){
+  var x = e.clientX;
+  var y = e.clientY;
+  cursorinner.style.left = x + 'px';
+  cursorinner.style.top = y + 'px';
+});
+
+document.addEventListener('mousedown', function(){
+  cursor.classList.add('click');
+  cursorinner.classList.add('cursorinnerhover')
+});
+
+document.addEventListener('mouseup', function(){
+  cursor.classList.remove('click')
+  cursorinner.classList.remove('cursorinnerhover')
+});
+
+a.forEach((element,index) => {
+  element.addEventListener('mouseover', () => {
+    cursor.classList.add(`hover`);
+    cursor.classList.add(`hover${index}`);
+  });
+  element.addEventListener('mouseleave', () => {
+    cursor.classList.remove(`hover`);
+    cursor.classList.remove(`hover${index}`);
+  });
+})
